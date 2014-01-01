@@ -12,6 +12,10 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'jquery-rails'
 
+group :development do
+  gem 'guard-rails'
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
 end
