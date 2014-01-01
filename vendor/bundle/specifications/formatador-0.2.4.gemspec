@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
+# stub: formatador 0.2.4 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "formatador"
   s.version = "0.2.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib"]
   s.authors = ["geemus (Wesley Beary)"]
   s.date = "2012-10-26"
   s.description = "STDOUT text formatting"
@@ -13,10 +15,11 @@ Gem::Specification.new do |s|
   s.files = ["README.rdoc"]
   s.homepage = "http://github.com/geemus/formatador"
   s.rdoc_options = ["--charset=UTF-8"]
-  s.require_paths = ["lib"]
   s.rubyforge_project = "formatador"
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "2.2.0"
   s.summary = "Ruby STDOUT text formatting"
+
+  s.installed_by_version = "2.2.0" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 2

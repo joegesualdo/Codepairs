@@ -30,14 +30,15 @@ Kernel configured for up to 4 processors.
 Processor type: i486 (Intel 80486)
 Processors active: 0 1 2 3
 Primary memory available: 8.00 gigabytes
-Default processor set: 230 tasks, 1533 threads, 4 processors
-Load average: 7.55, Mach factor: 0.41
+Default processor set: 265 tasks, 1969 threads, 4 processors
+Load average: 4.52, Mach factor: 0.86
 /bin/machine           = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
-PATH: /Users/joegesualdo/.rbenv/versions/1.9.3-p448/bin
+PATH: /Users/joegesualdo/.rbenv/versions/2.1.0/bin
 PATH: /usr/local/Cellar/rbenv/0.4.0/libexec
+PATH: /Users/joegesualdo/.rbenv/plugins/ruby-build/bin
 PATH: /Users/joegesualdo/.rbenv/shims
 PATH: /usr/local/bin
 PATH: /usr/bin
@@ -1546,7 +1547,7 @@ configure:13449: checking for isnand
 configure:13449: gcc -o conftest -g -O2   conftest.c  >&5
 Undefined symbols for architecture x86_64:
   "_isnand", referenced from:
-      _main in conftest-BSdReD.o
+      _main in conftest-ilSYg3.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 configure:13449: $? = 1
@@ -1653,7 +1654,7 @@ configure:13449: checking for fp_class
 configure:13449: gcc -o conftest -g -O2   conftest.c  >&5
 Undefined symbols for architecture x86_64:
   "_fp_class", referenced from:
-      _main in conftest-nAXOFd.o
+      _main in conftest-hPV7W7.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 configure:13449: $? = 1
@@ -1760,7 +1761,7 @@ configure:13449: checking for class
 configure:13449: gcc -o conftest -g -O2   conftest.c  >&5
 Undefined symbols for architecture x86_64:
   "_class", referenced from:
-      _main in conftest-JvDxUx.o
+      _main in conftest-UDvRF6.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 configure:13449: $? = 1
@@ -1867,7 +1868,7 @@ configure:13449: checking for fpclass
 configure:13449: gcc -o conftest -g -O2   conftest.c  >&5
 Undefined symbols for architecture x86_64:
   "_fpclass", referenced from:
-      _main in conftest-tMkCSo.o
+      _main in conftest-ZugNqt.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 configure:13449: $? = 1
@@ -1992,7 +1993,7 @@ configure:13473: checking for _stat
 configure:13473: gcc -o conftest -g -O2   conftest.c  >&5
 Undefined symbols for architecture x86_64:
   "__stat", referenced from:
-      _main in conftest-JCBslJ.o
+      _main in conftest-2P9pkC.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 configure:13473: $? = 1
@@ -2163,7 +2164,7 @@ configure:14350: checking for shl_load
 configure:14350: gcc -o conftest -g -O2 -pedantic -W -Wformat -Wunused -Wimplicit -Wreturn-type -Wswitch -Wcomment -Wtrigraphs -Wformat -Wchar-subscripts -Wuninitialized -Wparentheses -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wredundant-decls -Wno-long-long   conftest.c  >&5
 Undefined symbols for architecture x86_64:
   "_shl_load", referenced from:
-      _main in conftest-HN5CRd.o
+      _main in conftest-ZFRmBt.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 configure:14350: $? = 1
@@ -2411,9 +2412,9 @@ configure:15063: checking for iconv
 configure:15079: gcc -o conftest -g -O2 -pedantic -W -Wformat -Wunused -Wimplicit -Wreturn-type -Wswitch -Wcomment -Wtrigraphs -Wformat -Wchar-subscripts -Wuninitialized -Wparentheses -Wshadow -Wpointer-arith -Wcast-align -Wwrite-strings -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wnested-externs -Winline -Wredundant-decls -Wno-long-long   conftest.c  >&5
 Undefined symbols for architecture x86_64:
   "_iconv", referenced from:
-      _main in conftest-h5ZS6v.o
+      _main in conftest-zxan7Y.o
   "_iconv_open", referenced from:
-      _main in conftest-h5ZS6v.o
+      _main in conftest-zxan7Y.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 configure:15079: $? = 1

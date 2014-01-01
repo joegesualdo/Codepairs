@@ -5,25 +5,40 @@ SHELL = /bin/sh
 V = 0
 Q1 = $(V:1=)
 Q = $(Q1:0=@)
-n=$(NULLCMD)
-ECHO1 = $(V:1=@$n)
+ECHO1 = $(V:1=@:)
 ECHO = $(ECHO1:0=@echo)
 
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = /Users/joegesualdo/.rbenv/versions/1.9.3-p448/include/ruby-1.9.1
-hdrdir = /Users/joegesualdo/.rbenv/versions/1.9.3-p448/include/ruby-1.9.1
-arch_hdrdir = /Users/joegesualdo/.rbenv/versions/1.9.3-p448/include/ruby-1.9.1/$(arch)
+topdir = /Users/joegesualdo/.rbenv/versions/2.1.0/include/ruby-2.1.0
+hdrdir = $(topdir)
+arch_hdrdir = /Users/joegesualdo/.rbenv/versions/2.1.0/include/ruby-2.1.0/x86_64-darwin13.0
+PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/Users/joegesualdo/.rbenv/versions/1.9.3-p448
+prefix = $(DESTDIR)/Users/joegesualdo/.rbenv/versions/2.1.0
+rubysitearchprefix = $(rubylibprefix)/$(sitearch)
+rubyarchprefix = $(rubylibprefix)/$(arch)
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
 exec_prefix = $(prefix)
+vendorarchhdrdir = $(vendorhdrdir)/$(sitearch)
+sitearchhdrdir = $(sitehdrdir)/$(sitearch)
+rubyarchhdrdir = $(rubyhdrdir)/$(arch)
 vendorhdrdir = $(rubyhdrdir)/vendor_ruby
 sitehdrdir = $(rubyhdrdir)/site_ruby
-rubyhdrdir = $(includedir)/$(RUBY_BASE_NAME)-$(ruby_version)
+rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
+vendorarchdir = $(vendorlibdir)/$(sitearch)
+vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
+sitearchdir = $(DESTDIR)./.gem.20140101-37623-gy9ena
+sitelibdir = $(DESTDIR)./.gem.20140101-37623-gy9ena
 sitedir = $(rubylibprefix)/site_ruby
+rubyarchdir = $(rubylibdir)/$(arch)
+rubylibdir = $(rubylibprefix)/$(ruby_version)
+sitearchincludedir = $(includedir)/$(sitearch)
+archincludedir = $(includedir)/$(arch)
+sitearchlibdir = $(libdir)/$(sitearch)
+archlibdir = $(libdir)/$(arch)
 ridir = $(datarootdir)/$(RI_BASE_NAME)
 mandir = $(datarootdir)/man
 localedir = $(datarootdir)/locale
@@ -44,37 +59,32 @@ datarootdir = $(prefix)/share
 libexecdir = $(exec_prefix)/libexec
 sbindir = $(exec_prefix)/sbin
 bindir = $(exec_prefix)/bin
-rubylibdir = $(rubylibprefix)/$(ruby_version)
-archdir = $(rubylibdir)/$(arch)
-sitelibdir = $(sitedir)/$(ruby_version)
-sitearchdir = $(sitelibdir)/$(sitearch)
-vendorlibdir = $(vendordir)/$(ruby_version)
-vendorarchdir = $(vendorlibdir)/$(sitearch)
+archdir = $(rubyarchdir)
 
-NULLCMD = :
 
-CC = gcc
+CC = clang
 CXX = g++
 LIBRUBY = $(LIBRUBY_A)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
 LIBRUBYARG_SHARED = 
-LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
+LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static -framework CoreFoundation
 empty =
 OUTFLAG = -o $(empty)
 COUTFLAG = -o $(empty)
 
 RUBY_EXTCONF_H = extconf.h
 cflags   =  $(optflags) $(debugflags) $(warnflags)
-optflags = -O3
-debugflags = -ggdb
+optflags = -O3 -fno-fast-math
+debugflags = -ggdb3
 warnflags = 
-CFLAGS   = -fno-common  -O3 -Wno-error=shorten-64-to-32  -pipe $(ARCH_FLAG)
+CCDLFLAGS = -fno-common
+CFLAGS   = $(CCDLFLAGS)  -O3 -Wno-error=shorten-64-to-32  -pipe $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir) -I/usr/include/ffi
 DEFS     = 
-CPPFLAGS = -DRUBY_EXTCONF_H=\"$(RUBY_EXTCONF_H)\" -I/Users/joegesualdo/.rbenv/versions/1.9.3-p448/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags)
-CXXFLAGS = $(CFLAGS) $(cxxflags)
-ldflags  = -L. -L/Users/joegesualdo/.rbenv/versions/1.9.3-p448/lib 
-dldflags = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -Wl,-flat_namespace 
+CPPFLAGS = -DRUBY_EXTCONF_H=\"$(RUBY_EXTCONF_H)\" -I/Users/joegesualdo/.rbenv/versions/2.1.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)
+CXXFLAGS = $(CCDLFLAGS) $(cxxflags) $(ARCH_FLAG)
+ldflags  = -L. -L/Users/joegesualdo/.rbenv/versions/2.1.0/lib  -fstack-protector
+dldflags = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress 
 ARCH_FLAG = 
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
 LDSHARED = $(CC) -dynamic -bundle
@@ -82,14 +92,20 @@ LDSHAREDXX = $(CXX) -dynamic -bundle
 AR = ar
 EXEEXT = 
 
-RUBY_BASE_NAME = ruby
 RUBY_INSTALL_NAME = ruby
 RUBY_SO_NAME = ruby
-arch = x86_64-darwin13.0.1
+RUBYW_INSTALL_NAME = 
+RUBY_VERSION_NAME = $(RUBY_BASE_NAME)-$(ruby_version)
+RUBYW_BASE_NAME = rubyw
+RUBY_BASE_NAME = ruby
+
+arch = x86_64-darwin13.0
 sitearch = $(arch)
-ruby_version = 1.9.1
-ruby = /Users/joegesualdo/.rbenv/versions/1.9.3-p448/bin/ruby
+ruby_version = 2.1.0
+ruby = $(bindir)/ruby
 RUBY = $(ruby)
+ruby_headers = $(hdrdir)/ruby.h $(hdrdir)/ruby/ruby.h $(hdrdir)/ruby/defines.h $(hdrdir)/ruby/missing.h $(hdrdir)/ruby/intern.h $(hdrdir)/ruby/st.h $(hdrdir)/ruby/subst.h $(arch_hdrdir)/ruby/config.h $(RUBY_EXTCONF_H)
+
 RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
 RMDIRS = rmdir -p
@@ -117,8 +133,10 @@ extout_prefix =
 target_prefix = 
 LOCAL_LIBS = 
 LIBS =  -lffi  -lpthread -ldl -lobjc 
-SRCS = AbstractMemory.c ArrayType.c Buffer.c Call.c ClosurePool.c DataConverter.c DynamicLibrary.c ffi.c Function.c FunctionInfo.c LastError.c LongDouble.c MappedType.c MemoryPointer.c MethodHandle.c Platform.c Pointer.c Struct.c StructByReference.c StructByValue.c StructLayout.c Thread.c Type.c Types.c Variadic.c
+ORIG_SRCS = AbstractMemory.c ArrayType.c Buffer.c Call.c ClosurePool.c DataConverter.c DynamicLibrary.c ffi.c Function.c FunctionInfo.c LastError.c LongDouble.c MappedType.c MemoryPointer.c MethodHandle.c Platform.c Pointer.c Struct.c StructByReference.c StructByValue.c StructLayout.c Thread.c Type.c Types.c Variadic.c
+SRCS = $(ORIG_SRCS) 
 OBJS = AbstractMemory.o ArrayType.o Buffer.o Call.o ClosurePool.o DataConverter.o DynamicLibrary.o ffi.o Function.o FunctionInfo.o LastError.o LongDouble.o MappedType.o MemoryPointer.o MethodHandle.o Platform.o Pointer.o Struct.o StructByReference.o StructByValue.o StructLayout.o Thread.o Type.o Types.o Variadic.o
+HDRS = $(srcdir)/AbstractMemory.h $(srcdir)/ArrayType.h $(srcdir)/Call.h $(srcdir)/ClosurePool.h $(srcdir)/compat.h $(srcdir)/DynamicLibrary.h $(srcdir)/extconf.h $(srcdir)/Function.h $(srcdir)/LastError.h $(srcdir)/LongDouble.h $(srcdir)/MappedType.h $(srcdir)/MemoryPointer.h $(srcdir)/MethodHandle.h $(srcdir)/Platform.h $(srcdir)/Pointer.h $(srcdir)/rbffi.h $(srcdir)/rbffi_endian.h $(srcdir)/Struct.h $(srcdir)/StructByReference.h $(srcdir)/StructByValue.h $(srcdir)/Thread.h $(srcdir)/Type.h $(srcdir)/Types.h
 TARGET = ffi_c
 TARGET_NAME = ffi_c
 TARGET_ENTRY = Init_$(TARGET_NAME)
@@ -126,10 +144,11 @@ DLLIB = $(TARGET).bundle
 EXTSTATIC = 
 STATIC_LIB = 
 
+TIMESTAMP_DIR = .
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/joegesualdo/code/rails_code/code_pairs/vendor/bundle/gems/ffi-1.9.3/lib$(target_prefix)
-RUBYARCHDIR = /Users/joegesualdo/code/rails_code/code_pairs/vendor/bundle/gems/ffi-1.9.3/lib$(target_prefix)
+RUBYLIBDIR    = $(sitelibdir)$(target_prefix)
+RUBYARCHDIR   = $(sitearchdir)$(target_prefix)
 HDRDIR        = $(rubyhdrdir)/ruby$(target_prefix)
 ARCHHDRDIR    = $(rubyhdrdir)/$(arch)/ruby$(target_prefix)
 
@@ -140,7 +159,7 @@ CLEANOBJS     = *.o  *.bak
 all:    $(DLLIB)
 static: $(STATIC_LIB)
 .PHONY: all install static install-so install-rb
-.PHONY: clean clean-so clean-rb
+.PHONY: clean clean-so clean-static clean-rb
 
 clean-static::
 clean-rb-default::
@@ -152,18 +171,17 @@ clean: clean-so clean-static clean-rb-default clean-rb
 distclean-rb-default::
 distclean-rb::
 distclean-so::
-distclean: clean distclean-so distclean-rb-default distclean-rb
-		@-$(RM) Makefile $(RUBY_EXTCONF_H) conftest.* mkmf.log
-		@-$(RM) core ruby$(EXEEXT) *~ $(DISTCLEANFILES)
-		@-$(RMDIRS) $(DISTCLEANDIRS) 2> /dev/null || true
+distclean-static::
+distclean: clean distclean-so distclean-static distclean-rb-default distclean-rb
+		-$(Q)$(RM) Makefile $(RUBY_EXTCONF_H) conftest.* mkmf.log
+		-$(Q)$(RM) core ruby$(EXEEXT) *~ $(DISTCLEANFILES)
+		-$(Q)$(RMDIRS) $(DISTCLEANDIRS) 2> /dev/null || true
 
 realclean: distclean
 install: install-so install-rb
 
-install-so: $(RUBYARCHDIR)/$(DLLIB)
-$(RUBYARCHDIR)/$(DLLIB): $(DLLIB)
-	-$(Q)$(MAKEDIRS) $(@D)
-	$(INSTALL_PROG) $(DLLIB) $(@D)
+install-so: $(DLLIB) $(TIMESTAMP_DIR)/.RUBYARCHDIR.time
+	$(INSTALL_PROG) $(DLLIB) $(RUBYARCHDIR)
 clean-static::
 	-$(Q)$(RM) $(STATIC_LIB)
 install-rb: pre-install-rb install-rb-default
@@ -172,8 +190,8 @@ pre-install-rb: Makefile
 pre-install-rb-default: Makefile
 pre-install-rb-default:
 	$(ECHO) installing default ffi_c libraries
-./.RUBYARCHDIR.time:
-	$(Q) $(MAKEDIRS) $(RUBYARCHDIR)
+$(TIMESTAMP_DIR)/.RUBYARCHDIR.time:
+	$(Q) $(MAKEDIRS) $(@D) $(RUBYARCHDIR)
 	$(Q) $(TOUCH) $@
 
 site-install: site-install-so site-install-rb
@@ -214,7 +232,8 @@ $(DLLIB): $(OBJS) Makefile
 	$(ECHO) linking shared-object $(DLLIB)
 	-$(Q)$(RM) $(@)
 	$(Q) $(LDSHARED) -o $@ $(OBJS) $(LIBPATH) $(DLDFLAGS) $(LOCAL_LIBS) $(LIBS)
+	$(Q) $(POSTLINK)
 
 
 
-$(OBJS): $(hdrdir)/ruby.h $(hdrdir)/ruby/defines.h $(arch_hdrdir)/ruby/config.h $(RUBY_EXTCONF_H)
+$(OBJS): $(HDRS) $(ruby_headers)

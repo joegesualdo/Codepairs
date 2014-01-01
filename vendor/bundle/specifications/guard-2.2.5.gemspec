@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
+# stub: guard 2.2.5 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "guard"
   s.version = "2.2.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib"]
   s.authors = ["Thibaud Guillaume-Gentil"]
   s.date = "2013-12-13"
   s.description = "Guard is a command line tool to easily handle events on file system modifications."
@@ -13,10 +15,11 @@ Gem::Specification.new do |s|
   s.files = ["bin/guard"]
   s.homepage = "http://guardgem.org"
   s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
   s.required_ruby_version = Gem::Requirement.new(">= 1.9.2")
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "2.2.0"
   s.summary = "Guard keeps an eye on your file modifications"
+
+  s.installed_by_version = "2.2.0" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4

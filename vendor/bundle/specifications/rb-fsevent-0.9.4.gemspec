@@ -1,19 +1,22 @@
 # -*- encoding: utf-8 -*-
+# stub: rb-fsevent 0.9.4 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "rb-fsevent"
   s.version = "0.9.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib"]
   s.authors = ["Thibaud Guillaume-Gentil", "Travis Tilley"]
   s.date = "2013-12-30"
   s.description = "FSEvents API with Signals catching (without RubyCocoa)"
   s.email = ["thibaud@thibaud.gg", "ttilley@gmail.com"]
   s.homepage = "http://rubygems.org/gems/rb-fsevent"
   s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "2.2.0"
   s.summary = "Very simple & usable FSEvents API"
+
+  s.installed_by_version = "2.2.0" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4

@@ -30,15 +30,16 @@ Kernel configured for up to 4 processors.
 Processor type: i486 (Intel 80486)
 Processors active: 0 1 2 3
 Primary memory available: 8.00 gigabytes
-Default processor set: 230 tasks, 1506 threads, 4 processors
-Load average: 6.90, Mach factor: 0.45
+Default processor set: 270 tasks, 1837 threads, 4 processors
+Load average: 3.40, Mach factor: 1.12
 /bin/machine           = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
 PATH: /Users/joegesualdo/code/rails_code/code_pairs/vendor/bundle/gems/nokogiri-1.6.1/ports/x86_64-apple-darwin13.0.1/libxml2/2.8.0/bin
-PATH: /Users/joegesualdo/.rbenv/versions/1.9.3-p448/bin
+PATH: /Users/joegesualdo/.rbenv/versions/2.1.0/bin
 PATH: /usr/local/Cellar/rbenv/0.4.0/libexec
+PATH: /Users/joegesualdo/.rbenv/plugins/ruby-build/bin
 PATH: /Users/joegesualdo/.rbenv/shims
 PATH: /usr/local/bin
 PATH: /usr/bin
@@ -1150,7 +1151,7 @@ configure:14199: checking for _stat
 configure:14255: gcc -o conftest -g -O2   conftest.c  >&5
 Undefined symbols for architecture x86_64:
   "__stat", referenced from:
-      _main in conftest-ddW8mS.o
+      _main in conftest-sP101g.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 configure:14262: $? = 1
