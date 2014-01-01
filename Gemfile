@@ -16,6 +16,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
 end
 
+group :test do
+  gem 'capybara'
+end
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
 
