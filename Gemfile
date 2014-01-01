@@ -14,6 +14,7 @@ gem 'slim'
 
 group :development do
   gem 'guard-rails'
+  gem 'pry-rails'
 end
 
 group :development, :test do
