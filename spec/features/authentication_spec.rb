@@ -37,22 +37,27 @@ feature 'Sign up' do
       fill_in 'Password confirmation', with: 'password'
       click_button 'Sign up'
     end
-    scenario 'shows flash message' do
-      expect(page).to have_content 'Welcome!'
+    scenario 'shows messages' do
+      expect(page).to have_content 'Welcome'
     end
     scenario 'saves user to database' do
       expect(User.count).to eq 1
+    end
+    scenario 'can log out' do
+      click_link 'Sign out'
+      expect(page).to have_content 'Signed out successfully'
     end
   end
   context 'without filling in information' do
     before :each do
       click_button 'Sign up'
     end
-    scenario 'shows flash message' do
-      expect(page).to have_content "Sorry, we couldn't sign you up with those credentials"
+    scenario 'shows error messages' do
+      expect(page).to have_content "errors"
     end
     scenario 'user should not be created in database' do
       expect(User.count).to eq 0
     end
   end
 end
+
