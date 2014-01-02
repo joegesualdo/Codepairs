@@ -28,6 +28,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

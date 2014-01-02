@@ -1,7 +1,14 @@
 require 'spec_helper'
 
-feature 'Log in', pending: true do
+feature 'Log in', js: true do
   before :each do
+    visit root_path
+    click_link 'Sign up'
+    fill_in 'Email', with: 'test@example.com'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+    click_button 'Sign up'
+
     visit root_path
     click_link 'Log in'
   end
@@ -9,18 +16,18 @@ feature 'Log in', pending: true do
     before :each do
       fill_in 'Email', with: 'test@example.com'
       fill_in 'Password', with: 'password'
-      click_button 'Submit'
+      click_button 'Sign in'
     end
     scenario 'show flash message' do
-      expect(page).to have_content 'Welcome back'
+      expect(page).to have_content 'Signed in successfully'
     end
   end
   context 'without filling in information' do
     before :each do
-      click_button 'Submit'
+      click_button 'Sign in'
     end
-    scenario 'shows flash message' do
-      expect(page).to have_content "Sorry, we couldn't log you in with those credentials."
+    scenario 'shows error messages' do
+      expect(page).to have_content "errors"
     end
   end
 end
