@@ -8,6 +8,7 @@ feature 'Log in', js: true do
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     click_button 'Sign up'
+    click_link 'Sign out'
 
     visit root_path
     click_link 'Log in'
@@ -26,8 +27,8 @@ feature 'Log in', js: true do
     before :each do
       click_button 'Sign in'
     end
-    scenario 'shows error messages' do
-      expect(page).to have_content "errors"
+    scenario 'shows flash message' do
+      expect(page).to have_content "Invalid"
     end
   end
 end
