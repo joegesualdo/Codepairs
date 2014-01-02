@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Log in' do, pending: true
+feature 'Log in', pending: true do
   before :each do
     visit root_path
     click_link 'Log in'
