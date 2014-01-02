@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
 ruby '2.1.0'
-
 gem 'rails', '4.0.1'
 
+# Database ===============
 gem 'pg'
+
+# Authentication ========
+gem 'devise'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
