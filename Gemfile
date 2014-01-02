@@ -14,11 +14,13 @@ gem 'slim'
 
 group :development do
   gem 'guard-rails'
-  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'jazz_hands'
 end
 
 group :test do
