@@ -34,7 +34,8 @@ feature 'Sign up' do
     before :each do
       fill_in 'Email', with: 'woowee@gmail.com'
       fill_in 'Password', with: 'password'
-      click_button 'Submit'
+      fill_in 'Password confirmation', with: 'password'
+      click_button 'Sign up'
     end
     scenario 'shows flash message' do
       expect(page).to have_content 'Welcome!'
@@ -45,7 +46,7 @@ feature 'Sign up' do
   end
   context 'without filling in information' do
     before :each do
-      click_button 'Submit'
+      click_button 'Sign up'
     end
     scenario 'shows flash message' do
       expect(page).to have_content "Sorry, we couldn't sign you up with those credentials"
