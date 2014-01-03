@@ -6,7 +6,9 @@ describe User do
 
     # Attributes
     it { should respond_to :email }
-    
+    it { should respond_to :first }
+    it { should respond_to :last  }
+
     # Validations
     it { should allow_value('woowee@gmail.com').for(:email) }
     it { should_not allow_value('blahblah').for(:email) }
