@@ -1,6 +1,7 @@
 CodePairs::Application.routes.draw do
 
-  devise_for :users
+  devise_for :experts, controllers:  { registrations: "experts/registrations" }
+  devise_for :students, controllers: { registrations: "students/registrations" }
 
   resources :users do
     collection do
