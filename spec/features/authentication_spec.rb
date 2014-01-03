@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Log in'do
+feature 'Log in' do
   before :each do
     visit root_path
     click_link 'Sign up'
@@ -22,6 +22,9 @@ feature 'Log in'do
     scenario 'show flash message' do
       expect(page).to have_content 'Signed in successfully'
     end
+    scenario 'log out button appears' do
+      expect(page).to have_content 'Sign out'
+    end
   end
   context 'without filling in information' do
     before :each do
@@ -29,6 +32,9 @@ feature 'Log in'do
     end
     scenario 'shows flash message' do
       expect(page).to have_content "Invalid"
+    end
+    scenario 'log out buttons does not appear' do
+      expect(page).to_not have_content 'Sign out'
     end
   end
 end
