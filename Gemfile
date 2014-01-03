@@ -18,6 +18,7 @@ gem 'slim'
 group :development do
   gem 'guard-rails'
   gem 'guard-rspec', require: false
+  gem 'guard-bundler'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
