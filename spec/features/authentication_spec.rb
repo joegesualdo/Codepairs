@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Log in', js: true do
+feature 'Log in'do
   before :each do
     visit root_path
     click_link 'Sign up'
