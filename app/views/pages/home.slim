@@ -1,6 +1,6 @@
 h1 Welcome to Code Pairs
 - if current_user
-  == link_to 'Profile', '#'
+  == link_to 'Profile', profile_users_path
   == link_to 'Sign out', destroy_user_session_path, method: :delete
 - else
   == link_to 'Sign up', new_user_registration_path
