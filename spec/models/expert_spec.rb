@@ -9,6 +9,7 @@ describe Expert do
   # Associations ==========================================
   it { should have_many(:students).through(:appointments) }
   it { should have_many :appointments }
+  it { should have_and_belong_to_many :requests }
 
   # Attributes ===========================================
   it { should respond_to :email }

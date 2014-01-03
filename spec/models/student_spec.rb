@@ -9,6 +9,7 @@ describe Student do
   # Associations ==========================================
   it { should have_many(:experts).through(:appointments) }
   it { should have_many(:appointments) }
+  it { should have_many :requests }
 
   # Attributes ============================================
   it { should respond_to :email }
