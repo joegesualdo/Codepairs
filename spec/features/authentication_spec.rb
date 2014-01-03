@@ -4,6 +4,8 @@ feature 'Log in' do
   before :each do
     visit root_path
     click_link 'Sign up'
+    fill_in 'First', with: 'joe'
+    fill_in 'Last', with: 'gesualdo'
     fill_in 'Email', with: 'test@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
