@@ -1,3 +1,3 @@
-class Experts::RegistrationsController < Devise::RegistrationsController
+class Experts::RegistrationsController < Users::RegistrationsController
 
 end

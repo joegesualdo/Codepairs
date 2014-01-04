@@ -1,3 +1,3 @@
-class Students::RegistrationsController < Devise::RegistrationsController
+class Students::RegistrationsController < Users::RegistrationsController
 
 end
