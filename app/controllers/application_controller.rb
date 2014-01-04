@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   # Note: Unable to access current user using Devise's 'current_user' method
   #       so created my own accessing the warden session object.
   # ------------------------------------------------------------------------
-  #TODO: Why aren't the build in Devise methods working?  
+  #TODO: Why aren't the built-in Devise methods working?  
   def current_user
     if session["warden.user.user.key"]
       @current_user ||= User.find(session["warden.user.user.key"][0][0])
