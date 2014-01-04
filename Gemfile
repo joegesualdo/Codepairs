@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'slim'
 
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 group :development do
   gem 'guard-rails'
   gem 'guard-rspec', require: false
