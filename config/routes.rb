@@ -14,4 +14,7 @@ CodePairs::Application.routes.draw do
       get 'profile', to: "users#profile", as: 'profile'
     end
   end
+
+  resources :requests
+
 end

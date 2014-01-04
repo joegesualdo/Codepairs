@@ -2,6 +2,7 @@ h1 Welcome to Code Pairs
 
 
 - if user_signed_in?
+  == link_to 'New Request', new_request_path
   == link_to 'Profile', profile_users_path
   == link_to 'Sign out', destroy_user_session_path, method: :delete
 - else
