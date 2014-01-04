@@ -4,3 +4,10 @@ ul
   li == "Name: #{@user.first} #{@user.last}"
   li == "Email: #{@user.email}"
   li == "Type: #{@user.type}"
+
+h5 Requests
+
+ul
+  == if @user.student?
+    - @user.requests.each do |request|
+      li == request.description
