@@ -7,8 +7,16 @@ CodePairs::Application.routes.draw do
   
   devise_for :experts, controllers:  { registrations: "experts/registrations" }, skip: :sessions
   devise_for :students, controllers: { registrations: "students/registrations" }, skip: :sessions
-  devise_for :users 
-  
+  devise_for :users, skip: :registrations  
+ 
+  devise_scope :student do
+    get 'signup', to: 'students/registrations#new'
+  end
+
+  devise_scope :user do
+    get 'signin', to: 'devise/sessions#new'
+  end
+
   resources :users do
     collection do
       get 'profile', to: "users#profile", as: 'profile'
