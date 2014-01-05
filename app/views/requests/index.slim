@@ -1,0 +1,8 @@
+h1 Requests
+
+ul
+  - @requests.each do |request|
+    li == request.description
+    ul
+      li == "Created by #{request.student.first} #{request.student.last}"
+      li == "Created at #{request.created_at}"

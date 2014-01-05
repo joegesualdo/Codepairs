@@ -8,6 +8,6 @@ ul
 h5 Requests
 
 ul
-  == if @user.student?
+  - if @user.student?
     - @user.requests.each do |request|
       li == request.description
