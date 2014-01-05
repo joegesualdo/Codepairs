@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(session["warden.user.user.key"][0][0])
     elsif session["warden.user.student.key"]
       @current_user ||= User.find(session["warden.user.student.key"][0][0])
-    elsif session["warden.user.student.key"]
-      @current_user ||= User.find(session["warden.user.student.key"][0][0])
+    elsif session["warden.user.expert.key"]
+      @current_user ||= User.find(session["warden.user.expert.key"][0][0])
     end
   end
   def user_signed_in?
