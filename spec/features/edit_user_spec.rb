@@ -11,12 +11,13 @@ feature 'Users profile' do
     fill_in 'Email', with: 'test123@example.com'
     fill_in 'Password', with: 'password'
     click_button 'Sign in'
-    expect(page).to have_content 'Profile'
     click_link 'Profile'
     click_link 'Edit'
+    expect(page).to have_content 'Edit Expert'
     fill_in 'First', with: 'maggie'
-    #click_button 'Edit'
-    #click_link 'Profile'
-    #expect(page).to have_content 'Edit Expert'
+    fill_in 'Current password', with: 'password'
+    click_button 'Update'
+    click_link 'Profile'
+    expect(page).to have_content 'Name: maggie'
   end
 end

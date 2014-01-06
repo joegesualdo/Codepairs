@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
   # permit additional parameters (the lazy way™) 
   # TODO: Change Devise defaults and invoke custom behaviour so it ins't done lazily
   def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:account_update) << [:first, :last]
     devise_parameter_sanitizer.for(:sign_up) << [:first, :last]
   end
 
