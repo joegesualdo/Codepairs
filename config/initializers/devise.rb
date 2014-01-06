@@ -252,3 +252,27 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 end
+
+# -------------------------------------------------------------------
+# Note: The code below is part of the solution I found for having one
+#       devise signin with many user types. The full solution can be
+#       found here: https://gist.github.com/joegesualdo/8277084
+#
+# -------------------------------------------------------------------
+
+# Monkey patch to remove memoization from Devise mapping lookup.
+# We need to be able to switch between different mappings at runtime
+# in order to authenticate different types of users.
+module Devise
+  module Strategies
+    class Base
+      def mapping
+        # @mapping ||= begin
+        mapping = Devise.mappings[scope]
+        raise "Could not find mapping for #{scope}" unless mapping
+        mapping
+        # end
+      end
+    end
+  end
+end

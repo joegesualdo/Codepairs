@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-feature 'Log in' do
-  let(:user){ FactoryGirl.create(:user, password: 'password')}
+feature 'Log in', js: true do
+  let(:expert){ FactoryGirl.create(:expert, password: 'password')}
   before :each do
     visit root_path
     click_link 'Log in'
   end
   context 'with valid credentials' do
     before :each do
-      fill_in 'Email', with: user.email
+      fill_in 'Email', with: expert.email
       fill_in 'Password', with: 'password'
       click_button 'Sign in'
     end

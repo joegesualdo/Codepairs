@@ -4,17 +4,18 @@ CodePairs::Application.routes.draw do
 
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
-  
-  devise_for :experts, controllers:  { registrations: "experts/registrations" }, skip: :sessions
-  devise_for :students, controllers: { registrations: "students/registrations" }, skip: :sessions
-  devise_for :users, skip: :registrations  
- 
-  devise_scope :student do
+
+  devise_for :students, controllers: { registrations: "students/registrations", sessions: 'sessions'}
+  devise_for :experts, controllers:  { registrations: "experts/registrations", sessions: 'sessions'}
+  devise_for :users, skip: :registrations
+
+ devise_scope :student do
     get 'signup', to: 'students/registrations#new'
   end
 
-  devise_scope :user do
-    get 'signin', to: 'devise/sessions#new'
+  devise_scope :student do
+    get 'signin', to: 'sessions#new'
+    match 'signout', to: 'sessions#destroy', via: [:delete]
   end
 
   resources :users do

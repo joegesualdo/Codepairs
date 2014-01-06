@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Users profile', js:true do
+feature 'Users profile' do
   before do
     FactoryGirl.create(:expert, first: 'joe', last: 'gesualdo', email: 'test123@example.com', password: 'password')
   end
