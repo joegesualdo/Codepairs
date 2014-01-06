@@ -38,6 +38,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem 'launchy'
 end
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

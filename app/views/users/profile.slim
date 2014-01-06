@@ -11,3 +11,8 @@ ul
   - if @user.student?
     - @user.requests.each do |request|
       li == request.description
+
+-if @user.expert?
+  p == link_to 'Edit', edit_expert_registration_path(@user)
+-elsif @user.student?
+  p == link_to 'Edit', edit_student_registration_path(@user)

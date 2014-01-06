@@ -19,7 +19,7 @@ CodePairs::Application.routes.draw do
 
   resources :users do
     collection do
-      get 'profile', to: "users#profile", as: 'profile'
+      get 'profile', to: "users#profile", as: 'profile', shallow: true
     end
   end
 
