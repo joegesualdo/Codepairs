@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Log in', js: true do
+feature 'Log in' do
   let(:expert){ FactoryGirl.create(:expert, password: 'password')}
   before :each do
     visit root_path
