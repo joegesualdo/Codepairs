@@ -43,7 +43,6 @@ feature 'Sign up' do
       fill_in 'Last',  with: 'Hen'
       fill_in 'Email', with: 'woowee@gmail.com'
       fill_in 'Password', with: 'password'
-      fill_in 'Password confirmation', with: 'password'
       click_button 'Sign up'
     end
     scenario 'shows messages' do
