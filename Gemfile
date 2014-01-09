@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'slim'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'annotate', '>=2.6.0'
 
 group :development do
   gem 'guard-rails'
@@ -24,6 +25,7 @@ group :development do
   gem 'guard-bundler'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'quiet_assets'
 end
 
 group :development, :test do

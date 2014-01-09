@@ -44,6 +44,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
+    annotate (2.6.1)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (4.0.1)
@@ -201,6 +204,8 @@ GEM
     pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -301,6 +306,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  annotate (>= 2.6.0)
   better_errors
   binding_of_caller
   capybara
@@ -316,6 +322,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   pg
+  quiet_assets
   rails (= 4.0.1)
   rspec-rails (~> 3.0.0.beta)
   sass-rails (~> 4.0.0)
