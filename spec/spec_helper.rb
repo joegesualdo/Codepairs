@@ -47,4 +47,8 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include FactoryGirl::Syntax::Methods
+ 
+  # Refactor common capybara tasks into helpers. Ex: 
+  #     http://robots.thoughtbot.com/rspec-integration-tests-with-capybara
+  config.include Features::SessionHelpers, type: :feature
 end
