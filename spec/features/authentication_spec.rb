@@ -27,17 +27,9 @@ feature 'Log in' do
 end
 
 feature 'Sign up' do
-  before :each do
-    visit root_path
-    click_link 'Sign up'
-  end
   context 'with valid credentials' do
     before :each do
-      fill_in 'First', with: 'Jen'
-      fill_in 'Last',  with: 'Hen'
-      fill_in 'Email', with: 'woowee@gmail.com'
-      fill_in 'Password', with: 'password'
-      click_button 'Sign up'
+      sign_up_expert_with('Jen', 'Hen', 'woowee@gmail.com', 'password')
     end
     scenario 'shows messages' do
       expect(page).to have_content 'Welcome'
@@ -52,7 +44,7 @@ feature 'Sign up' do
   end
   context 'without filling in information' do
     before :each do
-      click_button 'Sign up'
+      sign_up_expert_with('', '', '', '')
     end
     scenario 'shows error messages' do
       expect(page).to have_content "errors"
