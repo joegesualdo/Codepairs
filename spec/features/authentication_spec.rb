@@ -2,15 +2,9 @@ require 'spec_helper'
 
 feature 'Log in' do
   let(:expert){ FactoryGirl.create(:expert, password: 'password')}
-  before :each do
-    visit root_path
-    click_link 'Log in'
-  end
   context 'with valid credentials' do
     before :each do
-      fill_in 'Email', with: expert.email
-      fill_in 'Password', with: 'password'
-      click_button 'Sign in'
+      login_with(expert.email, expert.password)
     end
     scenario 'show flash message' do
       expect(page).to have_content 'Signed in successfully'
@@ -21,7 +15,7 @@ feature 'Log in' do
   end
   context 'without filling in information' do
     before :each do
-      click_button 'Sign in'
+      login_with('','')
     end
     scenario 'shows flash message' do
       expect(page).to have_content "Invalid"
